@@ -1,346 +1,758 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
-    <title>Calculadora de Amortización y Préstamos | Simulador de Crédito Gratis</title>
-    <meta name="description" content="Genera tu tabla de amortización al instante. Simulador de préstamos y créditos gratuito para calcular abonos a capital, reducir intereses y salir de deudas rápido.">
-    <meta name="keywords" content="calculadora de prestamos, tabla de amortizacion, simulador de credito, calculadora de hipotecas, amortizacion de creditos, metodo avalancha, salir de deudas, abonos a capital">
-    <meta name="author" content="Amortiza Crédito">
-    <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <meta property="og:title" content="Calculadora de Amortización de Créditos - Genera tu Tabla Gratis">
-    <meta property="og:description" content="¿Quieres pagar tu préstamo más rápido? Usa nuestro simulador sin registro para ver exactamente cuántos meses y millones te ahorras haciendo abonos a capital.">
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://amortizacredito.com/">
-    <meta property="og:image" content="https://via.placeholder.com/1200x630.png?text=Simulador+de+Créditos+y+Amortización">
+    <title>
+      Calculadora de Amortización y Préstamos | Simulador de Crédito Gratis
+    </title>
+    <meta
+      name="description"
+      content="Genera tu tabla de amortización al instante. Simulador de préstamos y créditos gratuito para calcular abonos a capital, reducir intereses y salir de deudas rápido."
+    />
+    <meta
+      name="keywords"
+      content="calculadora de prestamos, tabla de amortizacion, simulador de credito, calculadora de hipotecas, amortizacion de creditos, metodo avalancha, salir de deudas, abonos a capital"
+    />
+    <meta name="author" content="Amortiza Crédito" />
+    <meta
+      name="robots"
+      content="index, follow, max-snippet:-1, max-image-preview:large"
+    />
+
+    <meta
+      property="og:title"
+      content="Calculadora de Amortización de Créditos - Genera tu Tabla Gratis"
+    />
+    <meta
+      property="og:description"
+      content="¿Quieres pagar tu préstamo más rápido? Usa nuestro simulador sin registro para ver exactamente cuántos meses y millones te ahorras haciendo abonos a capital."
+    />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://amortizacredito.com/" />
+    <meta
+      property="og:image"
+      content="https://via.placeholder.com/1200x630.png?text=Simulador+de+Créditos+y+Amortización"
+    />
 
     <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "WebApplication",
-      "name": "Calculadora de Amortización y Préstamos",
-      "url": "https://amortizacredito.com/",
-      "description": "Calculadora financiera interactiva para generar tablas de amortización, simular abonos a capital y estructurar el pago de créditos mediante métodos de reducción de intereses.",
-      "applicationCategory": "FinanceApplication",
-      "operatingSystem": "WebBrowser",
-      "offers": { "@type": "Offer", "price": "0", "priceCurrency": "COP" }
-    }
+      {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": "Calculadora de Amortización y Préstamos",
+        "url": "https://amortizacredito.com/",
+        "description": "Calculadora financiera interactiva para generar tablas de amortización, simular abonos a capital y estructurar el pago de créditos mediante métodos de reducción de intereses.",
+        "applicationCategory": "FinanceApplication",
+        "operatingSystem": "WebBrowser",
+        "offers": { "@type": "Offer", "price": "0", "priceCurrency": "COP" }
+      }
     </script>
 
-    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-    })(window,document,'script','dataLayer','GTM-552PX366');</script>
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2797901568173057"
-     crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <script>
+      (function (w, d, s, l, i) {
+        w[l] = w[l] || [];
+        w[l].push({ "gtm.start": new Date().getTime(), event: "gtm.js" });
+        var f = d.getElementsByTagName(s)[0],
+          j = d.createElement(s),
+          dl = l != "dataLayer" ? "&l=" + l : "";
+        j.async = true;
+        j.src = "https://www.googletagmanager.com/gtm.js?id=" + i + dl;
+        f.parentNode.insertBefore(j, f);
+      })(window, document, "script", "dataLayer", "GTM-552PX366");
+    </script>
+    <script
+      async
+      src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2797901568173057"
+      crossorigin="anonymous"
+    ></script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    />
     <style>
-        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background-color: #f0f4f8; padding: 20px; color: #333; line-height: 1.6; margin: 0; }
-        
+      body {
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        background-color: #f0f4f8;
+        padding: 20px;
+        color: #333;
+        line-height: 1.6;
+        margin: 0;
+      }
+
+      .wrapper-pagina-entera {
+        display: grid;
+        grid-template-columns: 1fr [content-start] minmax(
+            0,
+            900px
+          ) [content-end] 1fr;
+        gap: 30px;
+        padding: 20px;
+        max-width: 1360px;
+        margin: 0 auto;
+      }
+
+      .contenedorPrincipal {
+        grid-column: content;
+        background: white;
+        padding: 30px;
+        border-radius: 10px;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+      }
+
+      h1 {
+        color: #1e3a8a;
+        border-bottom: 2px solid #e2e8f0;
+        padding-bottom: 10px;
+        margin-bottom: 25px;
+        text-align: center;
+        font-size: 28px;
+      }
+      h2 {
+        color: #1e3a8a;
+        margin-top: 30px;
+        font-size: 22px;
+      }
+      h3 {
+        color: #475569;
+        font-size: 18px;
+        margin-top: 0;
+        margin-bottom: 15px;
+      }
+
+      .panel-perfil,
+      .panel-ingreso {
+        padding: 20px;
+        border-radius: 8px;
+        margin-bottom: 25px;
+      }
+      .panel-perfil {
+        background-color: #ffffff;
+        border: 1px solid #cbd5e1;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.02);
+      }
+      .panel-ingreso {
+        background-color: #eff6ff;
+        border: 2px dashed #93c5fd;
+      }
+      .fila-inputs {
+        display: flex;
+        gap: 15px;
+        flex-wrap: wrap;
+      }
+      .grupo-input {
+        flex: 1;
+        min-width: 140px;
+      }
+      label {
+        display: block;
+        font-size: 13px;
+        font-weight: bold;
+        color: #475569;
+        margin-bottom: 5px;
+      }
+      input,
+      select {
+        width: 100%;
+        padding: 10px;
+        border: 1px solid #cbd5e1;
+        border-radius: 5px;
+        box-sizing: border-box;
+        font-size: 15px;
+      }
+      .btn-guardar,
+      .btn-calcular-final {
+        color: white;
+        border: none;
+        font-weight: bold;
+        cursor: pointer;
+        width: 100%;
+        transition: 0.3s;
+      }
+      .btn-guardar {
+        background-color: #2563eb;
+        padding: 12px 20px;
+        border-radius: 6px;
+        font-size: 16px;
+        margin-top: 15px;
+      }
+      .btn-calcular-final {
+        background-color: #10b981;
+        padding: 15px 20px;
+        border-radius: 8px;
+        font-size: 18px;
+        margin-top: 20px;
+      }
+      .deuda-guardada {
+        background-color: #f8fafc;
+        border: 1px solid #cbd5e1;
+        border-left: 5px solid #10b981;
+        padding: 15px 20px;
+        border-radius: 6px;
+        margin-bottom: 10px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+      .btn-eliminar-basurero {
+        background-color: #ef4444;
+        color: white;
+        border: none;
+        border-radius: 50%;
+        width: 32px;
+        height: 32px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        font-size: 14px;
+      }
+
+      .panel-resultado {
+        background-color: #f8fafc;
+        border: 1px solid #cbd5e1;
+        padding: 20px;
+        border-radius: 8px;
+        margin-bottom: 20px;
+      }
+      .destacado-verde {
+        color: #10b981;
+        font-weight: bold;
+        font-size: 20px;
+      }
+      .tabla-amortizacion {
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 15px;
+        margin-bottom: 30px;
+        font-size: 14px;
+      }
+      .tabla-amortizacion th,
+      .tabla-amortizacion td {
+        border: 1px solid #cbd5e1;
+        padding: 10px;
+        text-align: right;
+      }
+      .tabla-amortizacion th {
+        background-color: #1e3a8a;
+        color: white;
+        text-align: center;
+      }
+      .tabla-amortizacion tr:nth-child(even) {
+        background-color: #f1f5f9;
+      }
+      .mes-extra {
+        background-color: #dcfce7 !important;
+        font-weight: bold;
+      }
+
+      .barra-acciones {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 20px;
+      }
+      .btn-volver {
+        background-color: #64748b;
+        color: white;
+        padding: 10px 20px;
+        text-decoration: none;
+        border-radius: 5px;
+        font-weight: bold;
+      }
+      .btn-volver:hover {
+        background-color: #475569;
+      }
+      .btn-pdf {
+        background-color: #dc2626;
+        color: white;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 5px;
+        font-weight: bold;
+        cursor: pointer;
+        font-size: 15px;
+        transition: 0.3s;
+      }
+      .btn-pdf:hover {
+        background-color: #b91c1c;
+      }
+
+      .seo-content {
+        margin-top: 50px;
+        padding-top: 30px;
+        border-top: 2px solid #e2e8f0;
+        color: #475569;
+      }
+      .seo-content p {
+        margin-bottom: 15px;
+      }
+      .faq-item {
+        margin-bottom: 20px;
+      }
+      .faq-item h3 {
+        color: #0f172a;
+        font-size: 16px;
+        margin-bottom: 5px;
+      }
+
+      /* ================= ESTILOS PARA BANNERS DE PUBLICIDAD (ADS) ================= */
+      /* Contenedores INVISIBLES. Listos para inyección dinámica de AdSense. No se ven como "en construcción". */
+      .sidebar-ads {
+        width: 200px;
+        position: sticky;
+        top: 20px;
+        align-self: start;
+        min-height: 600px; /* Estructura reservada de forma invisible */
+      }
+      .sidebar-izq {
+        align-self: start;
+        justify-self: end;
+      }
+      .sidebar-der {
+        align-self: start;
+        justify-self: start;
+      }
+
+      .horizontal-ad-inline {
+        margin: 20px 0;
+        width: 100%;
+      }
+      .results-ad-inline {
+        grid-column: content;
+        margin: 20px 0;
+        width: 100%;
+      }
+
+      /* Ocultar banners laterales en pantallas pequeñas */
+      @media (max-width: 1300px) {
         .wrapper-pagina-entera {
-            display: grid;
-            grid-template-columns: 1fr [content-start] minmax(0, 900px) [content-end] 1fr;
-            gap: 30px;
-            padding: 20px;
-            max-width: 1360px;
-            margin: 0 auto;
+          grid-template-columns: 1fr;
+          gap: 10px;
+          padding: 10px;
         }
-
-        .contenedorPrincipal { 
-            grid-column: content;
-            background: white; 
-            padding: 30px; 
-            border-radius: 10px; 
-            box-shadow: 0 4px 15px rgba(0,0,0,0.1); 
-        }
-        
-        h1 { color: #1e3a8a; border-bottom: 2px solid #e2e8f0; padding-bottom: 10px; margin-bottom: 25px; text-align: center; font-size: 28px;}
-        h2 { color: #1e3a8a; margin-top: 30px; font-size: 22px; }
-        h3 { color: #475569; font-size: 18px; margin-top: 0; margin-bottom: 15px; }
-
-        .panel-perfil, .panel-ingreso { padding: 20px; border-radius: 8px; margin-bottom: 25px; }
-        .panel-perfil { background-color: #ffffff; border: 1px solid #cbd5e1; box-shadow: 0 2px 5px rgba(0,0,0,0.02); }
-        .panel-ingreso { background-color: #eff6ff; border: 2px dashed #93c5fd; }
-        .fila-inputs { display: flex; gap: 15px; flex-wrap: wrap; }
-        .grupo-input { flex: 1; min-width: 140px; }
-        label { display: block; font-size: 13px; font-weight: bold; color: #475569; margin-bottom: 5px; }
-        input, select { width: 100%; padding: 10px; border: 1px solid #cbd5e1; border-radius: 5px; box-sizing: border-box; font-size: 15px; }
-        .btn-guardar, .btn-calcular-final { color: white; border: none; font-weight: bold; cursor: pointer; width: 100%; transition: 0.3s; }
-        .btn-guardar { background-color: #2563eb; padding: 12px 20px; border-radius: 6px; font-size: 16px; margin-top: 15px; }
-        .btn-calcular-final { background-color: #10b981; padding: 15px 20px; border-radius: 8px; font-size: 18px; margin-top: 20px; }
-        .deuda-guardada { background-color: #f8fafc; border: 1px solid #cbd5e1; border-left: 5px solid #10b981; padding: 15px 20px; border-radius: 6px; margin-bottom: 10px; display: flex; justify-content: space-between; align-items: center; }
-        .btn-eliminar-basurero { background-color: #ef4444; color: white; border: none; border-radius: 50%; width: 32px; height: 32px; display: flex; align-items: center; justify-content: center; cursor: pointer; font-size: 14px; }
-
-        .panel-resultado { background-color: #f8fafc; border: 1px solid #cbd5e1; padding: 20px; border-radius: 8px; margin-bottom: 20px; }
-        .destacado-verde { color: #10b981; font-weight: bold; font-size: 20px; }
-        .tabla-amortizacion { width: 100%; border-collapse: collapse; margin-top: 15px; margin-bottom: 30px; font-size: 14px; }
-        .tabla-amortizacion th, .tabla-amortizacion td { border: 1px solid #cbd5e1; padding: 10px; text-align: right; }
-        .tabla-amortizacion th { background-color: #1e3a8a; color: white; text-align: center; }
-        .tabla-amortizacion tr:nth-child(even) { background-color: #f1f5f9; }
-        .mes-extra { background-color: #dcfce7 !important; font-weight: bold;} 
-        
-        .barra-acciones { display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; }
-        .btn-volver { background-color: #64748b; color: white; padding: 10px 20px; text-decoration: none; border-radius: 5px; font-weight: bold; }
-        .btn-volver:hover { background-color: #475569; }
-        .btn-pdf { background-color: #dc2626; color: white; padding: 10px 20px; border: none; border-radius: 5px; font-weight: bold; cursor: pointer; font-size: 15px; transition: 0.3s;}
-        .btn-pdf:hover { background-color: #b91c1c; }
-
-        .seo-content { margin-top: 50px; padding-top: 30px; border-top: 2px solid #e2e8f0; color: #475569; }
-        .seo-content p { margin-bottom: 15px; }
-        .faq-item { margin-bottom: 20px; }
-        .faq-item h3 { color: #0f172a; font-size: 16px; margin-bottom: 5px; }
-
-        /* ================= ESTILOS PARA BANNERS DE PUBLICIDAD (ADS) ================= */
-        /* Contenedores INVISIBLES. Listos para inyección dinámica de AdSense. No se ven como "en construcción". */
         .sidebar-ads {
-            width: 200px;
-            position: sticky;
-            top: 20px;
-            align-self: start;
-            min-height: 600px; /* Estructura reservada de forma invisible */
+          display: none;
         }
-        .sidebar-izq { align-self: start; justify-self: end; }
-        .sidebar-der { align-self: start; justify-self: start; }
+        .contenedorPrincipal {
+          grid-column: auto;
+          max-width: 100%;
+        }
+      }
 
-        .horizontal-ad-inline {
-            margin: 20px 0;
-            width: 100%;
+      /* ================= MODO IMPRESIÓN (PDF) ================= */
+      @media print {
+        .barra-acciones,
+        .btn-volver,
+        .btn-pdf,
+        .seo-content,
+        .panel-ingreso,
+        header,
+        footer,
+        .btn-eliminar-basurero {
+          display: none !important;
         }
-        .results-ad-inline {
-            grid-column: content; 
-            margin: 20px 0;
-            width: 100%;
+        .sidebar-ads,
+        .horizontal-ad-inline,
+        .results-ad-inline,
+        [id^="div-gpt-ad"],
+        ins.adsbygoogle {
+          display: none !important;
         }
-
-        /* Ocultar banners laterales en pantallas pequeñas */
-        @media (max-width: 1300px) {
-            .wrapper-pagina-entera { grid-template-columns: 1fr; gap: 10px; padding: 10px; }
-            .sidebar-ads { display: none; }
-            .contenedorPrincipal { grid-column: auto; max-width: 100%; }
+        .wrapper-pagina-entera {
+          display: block;
+          padding: 0 !important;
+          margin: 0 !important;
         }
-
-        /* ================= MODO IMPRESIÓN (PDF) ================= */
-        @media print {
-            .barra-acciones, .btn-volver, .btn-pdf, .seo-content, .panel-ingreso, header, footer, .btn-eliminar-basurero { display: none !important; }
-            .sidebar-ads, .horizontal-ad-inline, .results-ad-inline, [id^="div-gpt-ad"], ins.adsbygoogle { display: none !important; }
-            .wrapper-pagina-entera { display: block; padding: 0 !important; margin: 0 !important; }
-            body { background-color: white !important; padding: 0 !important; margin: 0 !important; }
-            .contenedorPrincipal { box-shadow: none !important; border: none !important; max-width: 100% !important; width: 100% !important; padding: 0 !important; }
-            .tabla-amortizacion { page-break-inside: auto; width: 100%; border: 1px solid #000; font-size: 12px; }
-            tr { page-break-inside: avoid; page-break-after: auto; }
-            h1, h2, h3 { color: black !important; text-align: left; }
-            body::after { content: "Generado en amortizacredito.com - Tu plan matemático para salir de deudas"; display: block; text-align: center; font-size: 12px; color: #666; margin-top: 30px; font-weight: bold; }
+        body {
+          background-color: white !important;
+          padding: 0 !important;
+          margin: 0 !important;
         }
+        .contenedorPrincipal {
+          box-shadow: none !important;
+          border: none !important;
+          max-width: 100% !important;
+          width: 100% !important;
+          padding: 0 !important;
+        }
+        .tabla-amortizacion {
+          page-break-inside: auto;
+          width: 100%;
+          border: 1px solid #000;
+          font-size: 12px;
+        }
+        tr {
+          page-break-inside: avoid;
+          page-break-after: auto;
+        }
+        h1,
+        h2,
+        h3 {
+          color: black !important;
+          text-align: left;
+        }
+        body::after {
+          content: "Generado en amortizacredito.com - Tu plan matemático para salir de deudas";
+          display: block;
+          text-align: center;
+          font-size: 12px;
+          color: #666;
+          margin-top: 30px;
+          font-weight: bold;
+        }
+      }
     </style>
-</head>
-<body>
-
-    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-552PX366" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+  </head>
+  <body>
+    <noscript
+      ><iframe
+        src="https://www.googletagmanager.com/ns.html?id=GTM-552PX366"
+        height="0"
+        width="0"
+        style="display: none; visibility: hidden"
+      ></iframe
+    ></noscript>
 
     <div class="wrapper-pagina-entera">
+      <div class="sidebar-ads sidebar-izq"></div>
 
-        <div class="sidebar-ads sidebar-izq">
+      <div class="contenedorPrincipal">
+        {{if .Calculado}}
+        <div class="barra-acciones">
+          <a href="/" class="btn-volver"
+            ><i class="fas fa-arrow-left"></i> Volver a la Calculadora</a
+          >
+          <button onclick="window.print()" class="btn-pdf">
+            <i class="fas fa-file-pdf"></i> Descargar Plan (PDF)
+          </button>
+        </div>
+
+        <h1>Resultados de tu Plan Financiero</h1>
+
+        <div class="panel-resultado">
+          <h3>Resumen de Estrategia: {{.Estrategia}}</h3>
+          <p>
+            Dinero libre detectado para abonos extra:
+            <span class="destacado-verde"
+              >${{dinero .AbonoSugerido}} al mes</span
+            >
+          </p>
+          <p>
+            La estrategia indica inyectar todo este dinero PRIMERO a:
+            <strong>{{.DeudaObjetivo}}</strong>
+          </p>
+        </div>
+
+        <div class="fila-inputs">
+          <div
+            class="grupo-input panel-resultado"
+            style="background-color: #ecfdf5; border-color: #10b981"
+          >
+            <h3 style="color: #059669">
+              Opción A: Reducir TIEMPO (Recomendada)
+            </h3>
+            <p>
+              Haciendo abonos extra en cascada, pagarás todo en
+              <strong>{{.MesesOptA}} meses</strong>.
+            </p>
+            <hr style="border-top: 1px solid #10b981" />
+            <p>
+              🔥 Ahorras:
+              <span class="destacado-verde">{{.AhorroMeses}} meses</span>
+            </p>
+            <p>
+              💰 Ahorras en intereses:
+              <span class="destacado-verde"
+                >${{dinero .AhorroInteresesOptA}}</span
+              >
+            </p>
+          </div>
+
+          <div class="grupo-input panel-resultado">
+            <h3>Opción B: Reducir CUOTA</h3>
+            <p>
+              Inyectando <strong>${{dinero .AbonoOptB}}</strong> de forma única
+              a '{{.DeudaObjetivo}}'.
+            </p>
+            <p>
+              Nueva cuota aproximada: <strong>${{dinero .NuevaCuota}}</strong>
+            </p>
+            <hr />
+            <p>⚠️ Sigues atado al banco por {{.MesesBase}} meses.</p>
+            <p>
+              💰 Ahorro en intereses:
+              <strong style="color: #ea580c"
+                >${{dinero .AhorroInteresesOptB}}</strong
+              >
+            </p>
+          </div>
+        </div>
+
+        <div class="results-ad-inline"></div>
+
+        <h2 style="margin-top: 40px">Tus Tablas de Amortización (Opción A)</h2>
+
+        {{range .Tablas}}
+        <h3 style="color: #2563eb; margin-top: 30px">Deuda: {{.Nombre}}</h3>
+        <div style="overflow-x: auto">
+          <table class="tabla-amortizacion">
+            <thead>
+              <tr>
+                <th>Mes</th>
+                <th>Saldo Inicial</th>
+                <th>Cuota Base</th>
+                <th>Abono Extra</th>
+                <th>Intereses</th>
+                <th>A Capital</th>
+                <th>Saldo Final</th>
+                <th style="width: 50px">¿Listo?</th>
+              </tr>
+            </thead>
+            <tbody>
+              {{range .Filas}}
+              <tr class="{{if gt .AbonoExtra 0.0}}mes-extra{{end}}">
+                <td style="text-align: center">{{.Mes}}</td>
+                <td>${{dinero .SaldoIni}}</td>
+                <td>${{dinero .CuotaBase}}</td>
+                <td>${{dinero .AbonoExtra}}</td>
+                <td>${{dinero .Interes}}</td>
+                <td>${{dinero .Capital}}</td>
+                <td>${{dinero .SaldoFin}}</td>
+                <td style="text-align: center"><input type="checkbox" /></td>
+              </tr>
+              {{end}}
+            </tbody>
+          </table>
+        </div>
+        {{end}} {{else}}
+        <h1>Calculadora de Amortización de Deudas</h1>
+        <p style="text-align: center; color: #64748b; margin-bottom: 30px">
+          Ingresa tus ingresos y deudas para descubrir el plan matemático que te
+          ahorrará meses de vida e intereses bancarios.
+        </p>
+
+        <div class="horizontal-ad-inline"></div>
+
+        <form id="formulario-maestro" method="POST" action="/">
+          <div class="panel-perfil">
+            <h3>1. Tu Perfil Financiero</h3>
+            <div class="fila-inputs">
+              <div class="grupo-input">
+                <label>Ingresos Mensuales Libres ($)</label>
+                <input
+                  type="text"
+                  placeholder="Ej: 3.500.000"
+                  required
+                  oninput="
+                    formatearMiles(this);
+                    document.getElementById('ingresos_oculto').value =
+                      this.value.replace(/\./g, '');
+                  "
+                />
+                <input type="hidden" name="ingresos" id="ingresos_oculto" />
+              </div>
+              <div class="grupo-input">
+                <label>Estrategia de Pago</label>
+                <select name="estrategia" required>
+                  <option value="avalancha">
+                    Método Avalancha (Ahorra máximo en intereses)
+                  </option>
+                  <option value="bolanieve">
+                    Método Bola de Nieve (Elimina deudas pequeñas rápido)
+                  </option>
+                </select>
+              </div>
             </div>
+          </div>
 
-        <div class="contenedorPrincipal">
-            
-            {{if .Calculado}}
-                <div class="barra-acciones">
-                    <a href="/" class="btn-volver"><i class="fas fa-arrow-left"></i> Volver a la Calculadora</a>
-                    <button onclick="window.print();" class="btn-pdf"><i class="fas fa-file-pdf"></i> Descargar Plan (PDF)</button>
-                </div>
-                
-                <h1>Resultados de tu Plan Financiero</h1>
-                
-                <div class="panel-resultado">
-                    <h3>Resumen de Estrategia: {{.Estrategia}}</h3>
-                    <p>Dinero libre detectado para abonos extra: <span class="destacado-verde">${{dinero .AbonoSugerido}} al mes</span></p>
-                    <p>La estrategia indica inyectar todo este dinero PRIMERO a: <strong>{{.DeudaObjetivo}}</strong></p>
-                </div>
+          <div class="panel-ingreso">
+            <h3>2. Agregar Nueva Deuda</h3>
+            <div class="fila-inputs">
+              <div class="grupo-input">
+                <label>Nombre</label>
+                <input
+                  type="text"
+                  id="tmp_nombre"
+                  placeholder="Ej: Tarjeta Visa"
+                />
+              </div>
+              <div class="grupo-input">
+                <label>Saldo Total ($)</label>
+                <input
+                  type="text"
+                  id="tmp_saldo"
+                  placeholder="Ej: 5.000.000"
+                  oninput="formatearMiles(this)"
+                />
+              </div>
+              <div class="grupo-input">
+                <label>Cuota Mensual ($)</label>
+                <input
+                  type="text"
+                  id="tmp_cuota"
+                  placeholder="Ej: 250.000"
+                  oninput="formatearMiles(this)"
+                />
+              </div>
+              <div class="grupo-input">
+                <label>Tasa Mensual (%)</label>
+                <input
+                  type="number"
+                  step="0.01"
+                  id="tmp_tasa"
+                  placeholder="Ej: 2.1"
+                />
+              </div>
+              <div class="grupo-input">
+                <label>Meses Faltantes</label>
+                <input type="number" id="tmp_meses" placeholder="Ej: 48" />
+              </div>
+            </div>
+            <button type="button" class="btn-guardar" onclick="guardarDeuda()">
+              + Agregar a mi lista de deudas
+            </button>
+          </div>
 
-                <div class="fila-inputs">
-                    <div class="grupo-input panel-resultado" style="background-color: #ecfdf5; border-color: #10b981;">
-                        <h3 style="color: #059669;">Opción A: Reducir TIEMPO (Recomendada)</h3>
-                        <p>Haciendo abonos extra en cascada, pagarás todo en <strong>{{.MesesOptA}} meses</strong>.</p>
-                        <hr style="border-top: 1px solid #10b981;">
-                        <p>🔥 Ahorras: <span class="destacado-verde">{{.AhorroMeses}} meses</span></p>
-                        <p>💰 Ahorras en intereses: <span class="destacado-verde">${{dinero .AhorroInteresesOptA}}</span></p>
-                    </div>
+          <div id="contenedor-lista" style="display: none">
+            <h3>3. Tus Deudas Registradas</h3>
+            <div id="lista-guardadas"></div>
+            <button type="submit" class="btn-calcular-final" id="btn-calcular">
+              Generar mi Plan de Pagos Inteligente
+            </button>
+          </div>
+        </form>
 
-                    <div class="grupo-input panel-resultado">
-                        <h3>Opción B: Reducir CUOTA</h3>
-                        <p>Inyectando <strong>${{dinero .AbonoOptB}}</strong> de forma única a '{{.DeudaObjetivo}}'.</p>
-                        <p>Nueva cuota aproximada: <strong>${{dinero .NuevaCuota}}</strong></p>
-                        <hr>
-                        <p>⚠️ Sigues atado al banco por {{.MesesBase}} meses.</p>
-                        <p>💰 Ahorro en intereses: <strong style="color: #ea580c;">${{dinero .AhorroInteresesOptB}}</strong></p>
-                    </div>
-                </div>
+        <div class="seo-content">
+          <h2>
+            Guía Definitiva para la Amortización y el Pago Acelerado de Deudas
+          </h2>
+          <p>
+            Salir de deudas no es un acto de magia, es un ejercicio de
+            administración estratégica. Nuestra calculadora gratuita está
+            diseñada para darte claridad absoluta sobre cómo los abonos extra
+            pueden transformar tu futuro financiero y liberar tu flujo de caja
+            en tiempo récord.
+          </p>
 
-                <div class="results-ad-inline"></div>
+          <div class="faq-item">
+            <h3>
+              ¿Qué pasa si hago un abono a capital a mi crédito de libre
+              inversión?
+            </h3>
+            <p>
+              Como dijo alguna vez el físico <strong>Albert Einstein</strong>:
+              <em
+                >"El interés compuesto es la octava maravilla del mundo. El que
+                lo entiende, lo gana; el que no, lo paga"</em
+              >. Cuando realizas un abono a capital, estás atacando directamente
+              el saldo real de tu deuda antes de que el banco pueda calcular los
+              intereses del próximo mes. Un pequeño esfuerzo extra hoy se
+              traduce en millones de pesos ahorrados a largo plazo,
+              neutralizando el interés compuesto que juega en tu contra.
+            </p>
+          </div>
 
-                <h2 style="margin-top: 40px;">Tus Tablas de Amortización (Opción A)</h2>
-                
-                {{range .Tablas}}
-                <h3 style="color: #2563eb; margin-top: 30px;">Deuda: {{.Nombre}}</h3>
-                <div style="overflow-x: auto;">
-                    <table class="tabla-amortizacion">
-                        <thead>
-                            <tr>
-                                <th>Mes</th>
-                                <th>Saldo Inicial</th>
-                                <th>Cuota Base</th>
-                                <th>Abono Extra</th>
-                                <th>Intereses</th>
-                                <th>A Capital</th>
-                                <th>Saldo Final</th>
-                                <th style="width: 50px;">¿Listo?</th> 
-                            </tr>
-                        </thead>
-                        <tbody>
-                            {{range .Filas}}
-                            <tr class="{{if gt .AbonoExtra 0.0}}mes-extra{{end}}">
-                                <td style="text-align: center;">{{.Mes}}</td>
-                                <td>${{dinero .SaldoIni}}</td>
-                                <td>${{dinero .CuotaBase}}</td>
-                                <td>${{dinero .AbonoExtra}}</td>
-                                <td>${{dinero .Interes}}</td>
-                                <td>${{dinero .Capital}}</td>
-                                <td>${{dinero .SaldoFin}}</td>
-                                <td style="text-align: center;"><input type="checkbox"></td>
-                            </tr>
-                            {{end}}
-                        </tbody>
-                    </table>
-                </div>
-                {{end}}
+          <div class="faq-item">
+            <h3>¿Es mejor reducir la cuota o el plazo de mi préstamo?</h3>
+            <p>
+              La regla de oro de inversionistas como
+              <strong>Warren Buffett</strong> se basa en el valor del tiempo.
+              Financieramente,
+              <strong
+                >reducir el plazo (tiempo) es siempre la mejor decisión</strong
+              >. Al mantener tu cuota mensual igual, cada peso adicional que
+              inyectes destruye meses enteros de tu calendario de pagos,
+              ahorrándote el costo financiero total. Reducir la cuota solo te da
+              un alivio mensual engañoso, pero te mantiene atado al banco por la
+              misma cantidad de años.
+            </p>
+          </div>
 
-            {{else}}
-                <h1>Calculadora de Amortización de Deudas</h1>
-                <p style="text-align: center; color: #64748b; margin-bottom: 30px;">
-                    Ingresa tus ingresos y deudas para descubrir el plan matemático que te ahorrará meses de vida e intereses bancarios.
-                </p>
+          <div class="faq-item">
+            <h3>
+              Método Avalancha vs. Bola de Nieve: ¿Cuál estrategia de
+              amortización elegir?
+            </h3>
+            <p>
+              Existen dos grandes escuelas de pensamiento para estructurar tus
+              pagos:
+            </p>
+            <ul>
+              <li>
+                <strong>Método Bola de Nieve:</strong> Popularizado por el autor
+                financiero <strong>Dave Ramsey</strong>. Consiste en pagar
+                primero la deuda con el saldo más pequeño para obtener
+                "victorias rápidas". Es ideal si necesitas motivación
+                psicológica rápida para no rendirte.
+              </li>
+              <li>
+                <strong>Método Avalancha:</strong> La estrategia preferida por
+                analistas y administradores financieros. Atacas primero la deuda
+                con la <strong>tasa de interés más alta</strong>.
+                Matemáticamente, es la opción suprema porque bloquea la fuga de
+                capital más grande, haciéndote retener más dinero en tu propio
+                bolsillo.
+              </li>
+            </ul>
+          </div>
 
-                <div class="horizontal-ad-inline"></div>
+          <div class="faq-item">
+            <h3>¿Cómo funciona este simulador de créditos y abonos extra?</h3>
+            <p>
+              A diferencia de los simuladores básicos, nuestra herramienta
+              proyecta el <strong>efecto cascada</strong>. Inspirados en los
+              principios de flujo de efectivo de
+              <strong>Robert Kiyosaki</strong>, el algoritmo toma el dinero
+              mensual que tienes libre y lo inyecta tácticamente donde más daño
+              le hace a la deuda. Todo sin necesidad de registrarte ni descargar
+              Excel.
+            </p>
+          </div>
+        </div>
+        <script>
+          function formatearMiles(input) {
+            let valor = input.value.replace(/\D/g, "");
+            if (valor !== "") {
+              input.value = valor.replace(/\B(?=(\d{3})+(?!\d))/g, ".");
+            }
+          }
+          function guardarDeuda() {
+            const nombre = document.getElementById("tmp_nombre").value;
+            const saldo = document.getElementById("tmp_saldo").value;
+            const cuota = document.getElementById("tmp_cuota").value;
+            const tasa = document.getElementById("tmp_tasa").value;
+            const meses = document.getElementById("tmp_meses").value;
+            if (!nombre || !saldo || !cuota || !tasa || !meses) {
+              alert("Por favor, llena todos los campos.");
+              return;
+            }
 
-                <form id="formulario-maestro" method="POST" action="/">
-                    <div class="panel-perfil">
-                        <h3>1. Tu Perfil Financiero</h3>
-                        <div class="fila-inputs">
-                            <div class="grupo-input">
-                                <label>Ingresos Mensuales Libres ($)</label>
-                                <input type="text" placeholder="Ej: 3.500.000" required oninput="formatearMiles(this); document.getElementById('ingresos_oculto').value = this.value.replace(/\./g, '');">
-                                <input type="hidden" name="ingresos" id="ingresos_oculto">
-                            </div>
-                            <div class="grupo-input">
-                                <label>Estrategia de Pago</label>
-                                <select name="estrategia" required>
-                                    <option value="avalancha">Método Avalancha (Ahorra máximo en intereses)</option>
-                                    <option value="bolanieve">Método Bola de Nieve (Elimina deudas pequeñas rápido)</option>
-                                </select>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="panel-ingreso">
-                        <h3>2. Agregar Nueva Deuda</h3>
-                        <div class="fila-inputs">
-                            <div class="grupo-input">
-                                <label>Nombre</label>
-                                <input type="text" id="tmp_nombre" placeholder="Ej: Tarjeta Visa">
-                            </div>
-                            <div class="grupo-input">
-                                <label>Saldo Total ($)</label>
-                                <input type="text" id="tmp_saldo" placeholder="Ej: 5.000.000" oninput="formatearMiles(this)">
-                            </div>
-                            <div class="grupo-input">
-                                <label>Cuota Mensual ($)</label>
-                                <input type="text" id="tmp_cuota" placeholder="Ej: 250.000" oninput="formatearMiles(this)">
-                            </div>
-                            <div class="grupo-input">
-                                <label>Tasa Mensual (%)</label>
-                                <input type="number" step="0.01" id="tmp_tasa" placeholder="Ej: 2.1">
-                            </div>
-                            <div class="grupo-input">
-                                <label>Meses Faltantes</label>
-                                <input type="number" id="tmp_meses" placeholder="Ej: 48">
-                            </div>
-                        </div>
-                        <button type="button" class="btn-guardar" onclick="guardarDeuda()">+ Agregar a mi lista de deudas</button>
-                    </div>
-
-                    <div id="contenedor-lista" style="display: none;">
-                        <h3>3. Tus Deudas Registradas</h3>
-                        <div id="lista-guardadas"></div>
-                        <button type="submit" class="btn-calcular-final" id="btn-calcular">Generar mi Plan de Pagos Inteligente</button>
-                    </div>
-                </form>
-
-                <div class="seo-content">
-                    <h2>¿Cómo funciona nuestra Calculadora para Salir de Deudas?</h2>
-                    <p>Amortiza Crédito te ofrece un simulador financiero avanzado que organiza tus deudas y calcula automáticamente cómo salir de ellas en tiempo récord. Al ingresar tu saldo, tasa de interés y cuota mensual, nuestro algoritmo aplica el poderoso <strong>Efecto Cascada</strong> para optimizar tus abonos extra.</p>
-                    
-                    <h2>Estrategias de Amortización Explicadas</h2>
-                    <div class="fila-inputs">
-                        <div class="grupo-input">
-                            <h3>📈 Método Avalancha</h3>
-                            <p>Esta estrategia ordena tus deudas desde la que tiene la <strong>tasa de interés más alta</strong> hasta la más baja. Matemáticamente es la mejor opción porque atacas el crédito más costoso primero, ahorrándote la mayor cantidad de dinero posible a largo plazo.</p>
-                        </div>
-                        <div class="grupo-input">
-                            <h3>❄️ Método Bola de Nieve</h3>
-                            <p>Aquí priorizamos las deudas ordenándolas de <strong>menor saldo a mayor saldo</strong>, ignorando la tasa de interés. Es ideal para ganar motivación psicológica y liberar flujo de caja rápido al eliminar obligaciones pequeñas de un plumazo.</p>
-                        </div>
-                    </div>
-
-                    <h2>Preguntas Frecuentes sobre Abonos a Capital</h2>
-                    <div class="faq-item">
-                        <h3>¿Es mejor reducir el tiempo o reducir la cuota?</h3>
-                        <p>Financieramente, <strong>reducir el tiempo</strong> (Opción A en nuestra calculadora) es siempre más rentable. Al mantener tu cuota actual alta y hacer abonos extra, acortas los meses de la deuda y le evitas regalarle millones en intereses al banco.</p>
-                    </div>
-                    <div class="faq-item">
-                        <h3>¿Qué es una tabla de amortización?</h3>
-                        <p>Es un historial mes a mes que muestra cómo se distribuye cada cuota que pagas. En la tabla podrás ver qué porcentaje de tu dinero se va a pagar los intereses del banco y qué porcentaje entra como <em>A Capital</em> para disminuir tu saldo real.</p>
-                    </div>
-                </div>
-
-                <script>
-                    function formatearMiles(input) { let valor = input.value.replace(/\D/g, ""); if (valor !== "") { input.value = valor.replace(/\B(?=(\d{3})+(?!\d))/g, "."); } }
-                    function guardarDeuda() {
-                        const nombre = document.getElementById('tmp_nombre').value;
-                        const saldo = document.getElementById('tmp_saldo').value;
-                        const cuota = document.getElementById('tmp_cuota').value;
-                        const tasa = document.getElementById('tmp_tasa').value;
-                        const meses = document.getElementById('tmp_meses').value;
-                        if(!nombre || !saldo || !cuota || !tasa || !meses) { alert("Por favor, llena todos los campos."); return; }
-
-                        document.getElementById('contenedor-lista').style.display = 'block';
-                        const nuevaDeuda = document.createElement('div');
-                        nuevaDeuda.className = 'deuda-guardada';
-                        nuevaDeuda.innerHTML = `
+            document.getElementById("contenedor-lista").style.display = "block";
+            const nuevaDeuda = document.createElement("div");
+            nuevaDeuda.className = "deuda-guardada";
+            nuevaDeuda.innerHTML = `
                             <div class="deuda-info"><strong>${nombre}</strong><span>Saldo: $${saldo} | Cuota: $${cuota} | Tasa: ${tasa}% | Faltan: ${meses} meses</span></div>
                             <button type="button" class="btn-eliminar-basurero" onclick="this.parentElement.remove(); if(document.getElementById('lista-guardadas').children.length === 0) document.getElementById('contenedor-lista').style.display = 'none';"><i class="fas fa-trash-alt"></i></button>
                             <input type="hidden" name="nombre_deuda[]" value="${nombre}">
-                            <input type="hidden" name="saldo_deuda[]" value="${saldo.replace(/\./g, '')}">
-                            <input type="hidden" name="cuota_deuda[]" value="${cuota.replace(/\./g, '')}">
+                            <input type="hidden" name="saldo_deuda[]" value="${saldo.replace(/\./g, "")}">
+                            <input type="hidden" name="cuota_deuda[]" value="${cuota.replace(/\./g, "")}">
                             <input type="hidden" name="tasa_deuda[]" value="${tasa}">
                             <input type="hidden" name="meses_deuda[]" value="${meses}">
                         `;
-                        document.getElementById('lista-guardadas').appendChild(nuevaDeuda);
-                        document.getElementById('tmp_nombre').value = ""; document.getElementById('tmp_saldo').value = ""; document.getElementById('tmp_cuota').value = ""; document.getElementById('tmp_tasa').value = ""; document.getElementById('tmp_meses').value = "";
-                        document.getElementById('tmp_nombre').focus();
-                    }
-                </script>
-            {{end}}
+            document.getElementById("lista-guardadas").appendChild(nuevaDeuda);
+            document.getElementById("tmp_nombre").value = "";
+            document.getElementById("tmp_saldo").value = "";
+            document.getElementById("tmp_cuota").value = "";
+            document.getElementById("tmp_tasa").value = "";
+            document.getElementById("tmp_meses").value = "";
+            document.getElementById("tmp_nombre").focus();
+          }
+        </script>
+        {{end}}
+      </div>
 
-        </div>
-
-        <div class="sidebar-ads sidebar-der">
-            </div>
-
+      <div class="sidebar-ads sidebar-der"></div>
     </div>
-
-</body>
+  </body>
 </html>
