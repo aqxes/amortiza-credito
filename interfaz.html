@@ -1,14 +1,6 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-   <!-- Google Tag Manager -->
-<!-- Google Tag Manager -->
-<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-})(window,document,'script','dataLayer','GTM-552PX366');</script>
-<!-- End Google Tag Manager -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
@@ -33,27 +25,26 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       "description": "Calculadora financiera interactiva para generar tablas de amortización, simular abonos a capital y estructurar el pago de créditos mediante métodos de reducción de intereses.",
       "applicationCategory": "FinanceApplication",
       "operatingSystem": "WebBrowser",
-      "offers": { "@type": "Offer", "price": "0", "priceCurrency": "COP" },
-      "featureList": [
-        "Cálculo de tabla de amortización",
-        "Simulación de abonos a capital",
-        "Comparativa de reducción de cuota vs reducción de tiempo",
-        "Método Avalancha y Bola de Nieve"
-      ]
+      "offers": { "@type": "Offer", "price": "0", "priceCurrency": "COP" }
     }
     </script>
+
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-552PX366');</script>
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
         body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background-color: #f0f4f8; padding: 20px; color: #333; line-height: 1.6; margin: 0; }
         
-        /* Contenedor principal de 3 columnas */
         .wrapper-pagina-entera {
             display: grid;
             grid-template-columns: 1fr [content-start] minmax(0, 900px) [content-end] 1fr;
             gap: 30px;
             padding: 20px;
-            max-width: 1360px; /* Ancho máximo para monitores muy grandes */
+            max-width: 1360px;
             margin: 0 auto;
         }
 
@@ -63,8 +54,6 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
             padding: 30px; 
             border-radius: 10px; 
             box-shadow: 0 4px 15px rgba(0,0,0,0.1); 
-            /*margin: 0 auto;*/ /* Eliminamos centrado antiguo */
-            /*max-width: 900px;*/ /* Eliminamos ancho antiguo */
         }
         
         h1 { color: #1e3a8a; border-bottom: 2px solid #e2e8f0; padding-bottom: 10px; margin-bottom: 25px; text-align: center; font-size: 28px;}
@@ -104,113 +93,42 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         .faq-item h3 { color: #0f172a; font-size: 16px; margin-bottom: 5px; }
 
         /* ================= ESTILOS PARA BANNERS DE PUBLICIDAD (ADS) ================= */
-        /* Marcadores de posición de anuncios (Placeholders) */
-        .ad-placeholder { 
-            background: #e2e8f0; 
-            border: 1px dashed #94a3b8; 
-            display: flex; 
-            align-items: center; 
-            justify-content: center; 
-            color: #64748b; 
-            font-size: 14px; 
-            text-align: center; 
-            border-radius: 8px;
-        }
-
-        /* 3. Barras Laterales Fijas (Sticky Sidebars) - El plato fuerte */
+        /* Contenedores INVISIBLES. Listos para inyección dinámica de AdSense. No se ven como "en construcción". */
         .sidebar-ads {
-            width: 200px; /* Ancho estándar de AdSense */
+            width: 200px;
             position: sticky;
-            top: 20px; /* Distancia del borde superior de la pantalla */
+            top: 20px;
             align-self: start;
-            height: 600px; /* Altura sugerida para anuncios largos */
+            min-height: 600px; /* Estructura reservada de forma invisible */
         }
         .sidebar-izq { align-self: start; justify-self: end; }
         .sidebar-der { align-self: start; justify-self: start; }
 
-        /* 1. Banner Superior (arriba del formulario) */
         .horizontal-ad-inline {
-            background: #e2e8f0; 
-            border: 1px dashed #94a3b8; 
-            border-radius: 8px; 
-            min-height: 90px; /* Ancho estándar AdSense Leaderboard */
-            margin: 20px 0; 
-            display: flex; 
-            align-items: center; 
-            justify-content: center; 
-            color: #64748b; 
-            font-size: 14px; 
-            text-align: center; 
-        }
-
-        /* 2. Banner Medio (arriba de las tablas de resultados) */
-        .results-ad-inline {
-            grid-column: content; /* Lo mantenemos dentro del ancho del contenido */
-            background: #e2e8f0; 
-            border: 1px dashed #94a3b8; 
-            border-radius: 8px; 
-            min-height: 90px;
             margin: 20px 0;
-            display: flex; 
-            align-items: center; 
-            justify-content: center; 
-            color: #64748b; 
-            font-size: 14px; 
-            text-align: center; 
+            width: 100%;
+        }
+        .results-ad-inline {
+            grid-column: content; 
+            margin: 20px 0;
+            width: 100%;
         }
 
         /* Ocultar banners laterales en pantallas pequeñas */
         @media (max-width: 1300px) {
-            .wrapper-pagina-entera {
-                grid-template-columns: 1fr;
-                gap: 10px;
-                padding: 10px;
-            }
+            .wrapper-pagina-entera { grid-template-columns: 1fr; gap: 10px; padding: 10px; }
             .sidebar-ads { display: none; }
             .contenedorPrincipal { grid-column: auto; max-width: 100%; }
         }
 
-        /* ================= ESTILOS MÁGICOS PARA EL PDF (IMPRESIÓN) ================= */
+        /* ================= MODO IMPRESIÓN (PDF) ================= */
         @media print {
-            /* Ocultamos todo lo que no sirve en papel */
-            .barra-acciones, .btn-volver, .btn-pdf, .seo-content, .panel-ingreso, header, footer, .btn-eliminar-basurero { 
-                display: none !important; 
-            }
-
-            /* BLOQUEO CRUCIAL: Ocultamos las barras laterales y banners publicitarios de forma agresiva en la impresión */
-            .sidebar-ads, .horizontal-ad-inline, .results-ad-inline, [id^="div-gpt-ad"], ins.adsbygoogle {
-                display: none !important;
-            }
-
-            /* Reset del Grid para impresión (una sola columna limpia) */
-            .wrapper-pagina-entera {
-                display: block; 
-                padding: 0 !important;
-                margin: 0 !important;
-            }
-
-            body { 
-                background-color: white !important; 
-                padding: 0 !important; 
-                margin: 0 !important;
-            }
-
-            .contenedorPrincipal { 
-                box-shadow: none !important; 
-                border: none !important; 
-                max-width: 100% !important; 
-                width: 100% !important;
-                padding: 0 !important;
-            }
-
-            /* Optimizamos las tablas para que no se corten feo entre páginas */
-            .tabla-amortizacion { 
-                page-break-inside: auto; 
-                width: 100%;
-                border: 1px solid #000;
-                font-size: 12px;
-            }
-            
+            .barra-acciones, .btn-volver, .btn-pdf, .seo-content, .panel-ingreso, header, footer, .btn-eliminar-basurero { display: none !important; }
+            .sidebar-ads, .horizontal-ad-inline, .results-ad-inline, [id^="div-gpt-ad"], ins.adsbygoogle { display: none !important; }
+            .wrapper-pagina-entera { display: block; padding: 0 !important; margin: 0 !important; }
+            body { background-color: white !important; padding: 0 !important; margin: 0 !important; }
+            .contenedorPrincipal { box-shadow: none !important; border: none !important; max-width: 100% !important; width: 100% !important; padding: 0 !important; }
+            .tabla-amortizacion { page-break-inside: auto; width: 100%; border: 1px solid #000; font-size: 12px; }
             tr { page-break-inside: avoid; page-break-after: auto; }
             h1, h2, h3 { color: black !important; text-align: left; }
             body::after { content: "Generado en amortizacredito.com - Tu plan matemático para salir de deudas"; display: block; text-align: center; font-size: 12px; color: #666; margin-top: 30px; font-weight: bold; }
@@ -218,15 +136,13 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     </style>
 </head>
 <body>
-<!-- Google Tag Manager (noscript) -->
-<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-552PX366"
-height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-<!-- End Google Tag Manager (noscript) -->
+
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-552PX366" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+
     <div class="wrapper-pagina-entera">
 
-        <div class="sidebar-ads sidebar-izq ad-placeholder">
-            <p>[Espacio reservado para Banner Vertical Izquierdo de AdSense]<br>Ej: 200x600</p>
-        </div>
+        <div class="sidebar-ads sidebar-izq">
+            </div>
 
         <div class="contenedorPrincipal">
             
@@ -263,9 +179,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                     </div>
                 </div>
 
-                <div class="results-ad-inline ad-placeholder">
-                    <p>[Espacio reservado para Banner Horizontal de AdSense]<br>Ej: 728x90 o Adaptable</p>
-                </div>
+                <div class="results-ad-inline"></div>
 
                 <h2 style="margin-top: 40px;">Tus Tablas de Amortización (Opción A)</h2>
                 
@@ -309,9 +223,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                     Ingresa tus ingresos y deudas para descubrir el plan matemático que te ahorrará meses de vida e intereses bancarios.
                 </p>
 
-                <div class="horizontal-ad-inline ad-placeholder">
-                    <p>[Espacio reservado para Banner Horizontal de AdSense]<br>Ej: 728x90 o Adaptable</p>
-                </div>
+                <div class="horizontal-ad-inline"></div>
 
                 <form id="formulario-maestro" method="POST" action="/">
                     <div class="panel-perfil">
@@ -422,9 +334,12 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                 </script>
             {{end}}
 
-        </div> <div class="sidebar-ads sidebar-der ad-placeholder">
-            <p>[Espacio reservado para Banner Vertical Derecho de AdSense]<br>Ej: 200x600</p>
         </div>
 
-    </div> </body>
+        <div class="sidebar-ads sidebar-der">
+            </div>
+
+    </div>
+
+</body>
 </html>
