@@ -324,9 +324,12 @@ func manejadorCalculadora(w http.ResponseWriter, r *http.Request) {
 
 	tmpl.Execute(w, datosVista)
 }
-
 func main() {
 	http.HandleFunc("/", manejadorCalculadora)
+
+	http.HandleFunc("/ads.txt", func(w http.ResponseWriter, r *http.Request) {
+		http.ServeFile(w, r, "ads.txt")
+	})
 
 	puerto := os.Getenv("PORT")
 	if puerto == "" {
