@@ -624,9 +624,18 @@
         </form>
 
         <div class="seo-content">
-          <h2>
-            Guía Definitiva para la Amortización y el Pago Acelerado de Deudas
-          </h2>
+        {{if .TextoIA}}
+          <!-- MODO IA: Se muestra solo cuando se busca la ruta específica -->
+          <div class="ia-content">
+              {{.TextoIA}}
+          </div>
+          <hr>
+          <p style="font-size: 0.9em; color: #64748b;">
+              * Este análisis ha sido generado para ayudarte a optimizar tu deuda específica usando nuestra calculadora financiera.
+          </p>
+        {{else}}
+          <!-- MODO NORMAL: Se muestra en la página principal -->
+          <h2>Guía Definitiva para la Amortización y el Pago Acelerado de Deudas</h2>
           <p>
             Salir de deudas no es un acto de magia, es un ejercicio de
             administración estratégica. Nuestra calculadora gratuita está
@@ -636,16 +645,11 @@
           </p>
 
           <div class="faq-item">
-            <h3>
-              ¿Qué pasa si hago un abono a capital a mi crédito de libre
-              inversión?
-            </h3>
+            <h3>¿Qué pasa si hago un abono a capital a mi crédito de libre inversión?</h3>
             <p>
               Como dijo alguna vez el físico <strong>Albert Einstein</strong>:
-              <em
-                >"El interés compuesto es la octava maravilla del mundo. El que
-                lo entiende, lo gana; el que no, lo paga"</em
-              >. Cuando realizas un abono a capital, estás atacando directamente
+              <em>"El interés compuesto es la octava maravilla del mundo. El que
+              lo entiende, lo gana; el que no, lo paga"</em>. Cuando realizas un abono a capital, estás atacando directamente
               el saldo real de tu deuda antes de que el banco pueda calcular los
               intereses del próximo mes. Un pequeño esfuerzo extra hoy se
               traduce en millones de pesos ahorrados a largo plazo,
@@ -659,9 +663,7 @@
               La regla de oro de inversionistas como
               <strong>Warren Buffett</strong> se basa en el valor del tiempo.
               Financieramente,
-              <strong
-                >reducir el plazo (tiempo) es siempre la mejor decisión</strong
-              >. Al mantener tu cuota mensual igual, cada peso adicional que
+              <strong>reducir el plazo (tiempo) es siempre la mejor decisión</strong>. Al mantener tu cuota mensual igual, cada peso adicional que
               inyectes destruye meses enteros de tu calendario de pagos,
               ahorrándote el costo financiero total. Reducir la cuota solo te da
               un alivio mensual engañoso, pero te mantiene atado al banco por la
@@ -670,13 +672,9 @@
           </div>
 
           <div class="faq-item">
-            <h3>
-              Método Avalancha vs. Bola de Nieve: ¿Cuál estrategia de
-              amortización elegir?
-            </h3>
+            <h3>Método Avalancha vs. Bola de Nieve: ¿Cuál estrategia de amortización elegir?</h3>
             <p>
-              Existen dos grandes escuelas de pensamiento para estructurar tus
-              pagos:
+              Existen dos grandes escuelas de pensamiento para estructurar tus pagos:
             </p>
             <ul>
               <li>
@@ -705,53 +703,53 @@
               principios de flujo de efectivo de
               <strong>Robert Kiyosaki</strong>, el algoritmo toma el dinero
               mensual que tienes libre y lo inyecta tácticamente donde más daño
-              le hace a la deuda. Todo sin necesidad de registrarte ni descargar
-              Excel.
+              le hace a la deuda. Todo sin necesidad de registrarte ni descargar Excel.
             </p>
           </div>
-        </div>
-        <script>
-          function formatearMiles(input) {
-            let valor = input.value.replace(/\D/g, "");
-            if (valor !== "") {
-              input.value = valor.replace(/\B(?=(\d{3})+(?!\d))/g, ".");
-            }
-          }
-          function guardarDeuda() {
-            const nombre = document.getElementById("tmp_nombre").value;
-            const saldo = document.getElementById("tmp_saldo").value;
-            const cuota = document.getElementById("tmp_cuota").value;
-            const tasa = document.getElementById("tmp_tasa").value;
-            const meses = document.getElementById("tmp_meses").value;
-            if (!nombre || !saldo || !cuota || !tasa || !meses) {
-              alert("Por favor, llena todos los campos.");
-              return;
-            }
-
-            document.getElementById("contenedor-lista").style.display = "block";
-            const nuevaDeuda = document.createElement("div");
-            nuevaDeuda.className = "deuda-guardada";
-            nuevaDeuda.innerHTML = `
-                            <div class="deuda-info"><strong>${nombre}</strong><span>Saldo: $${saldo} | Cuota: $${cuota} | Tasa: ${tasa}% | Faltan: ${meses} meses</span></div>
-                            <button type="button" class="btn-eliminar-basurero" onclick="this.parentElement.remove(); if(document.getElementById('lista-guardadas').children.length === 0) document.getElementById('contenedor-lista').style.display = 'none';"><i class="fas fa-trash-alt"></i></button>
-                            <input type="hidden" name="nombre_deuda[]" value="${nombre}">
-                            <input type="hidden" name="saldo_deuda[]" value="${saldo.replace(/\./g, "")}">
-                            <input type="hidden" name="cuota_deuda[]" value="${cuota.replace(/\./g, "")}">
-                            <input type="hidden" name="tasa_deuda[]" value="${tasa}">
-                            <input type="hidden" name="meses_deuda[]" value="${meses}">
-                        `;
-            document.getElementById("lista-guardadas").appendChild(nuevaDeuda);
-            document.getElementById("tmp_nombre").value = "";
-            document.getElementById("tmp_saldo").value = "";
-            document.getElementById("tmp_cuota").value = "";
-            document.getElementById("tmp_tasa").value = "";
-            document.getElementById("tmp_meses").value = "";
-            document.getElementById("tmp_nombre").focus();
-          }
-        </script>
-        {{end}}
+        {{end}} <!-- ESTE CIERRA EL IF DE LA IA -->
       </div>
 
+      <!-- El script debe ir fuera del bloque condicional de la IA -->
+      <script>
+        function formatearMiles(input) {
+          let valor = input.value.replace(/\D/g, "");
+          if (valor !== "") {
+            input.value = valor.replace(/\B(?=(\d{3})+(?!\d))/g, ".");
+          }
+        }
+        function guardarDeuda() {
+          const nombre = document.getElementById("tmp_nombre").value;
+          const saldo = document.getElementById("tmp_saldo").value;
+          const cuota = document.getElementById("tmp_cuota").value;
+          const tasa = document.getElementById("tmp_tasa").value;
+          const meses = document.getElementById("tmp_meses").value;
+          if (!nombre || !saldo || !cuota || !tasa || !meses) {
+            alert("Por favor, llena todos los campos.");
+            return;
+          }
+
+          document.getElementById("contenedor-lista").style.display = "block";
+          const nuevaDeuda = document.createElement("div");
+          nuevaDeuda.className = "deuda-guardada";
+          nuevaDeuda.innerHTML = `
+                          <div class="deuda-info"><strong>${nombre}</strong><span>Saldo: $${saldo} | Cuota: $${cuota} | Tasa: ${tasa}% | Faltan: ${meses} meses</span></div>
+                          <button type="button" class="btn-eliminar-basurero" onclick="this.parentElement.remove(); if(document.getElementById('lista-guardadas').children.length === 0) document.getElementById('contenedor-lista').style.display = 'none';"><i class="fas fa-trash-alt"></i></button>
+                          <input type="hidden" name="nombre_deuda[]" value="${nombre}">
+                          <input type="hidden" name="saldo_deuda[]" value="${saldo.replace(/\./g, "")}">
+                          <input type="hidden" name="cuota_deuda[]" value="${cuota.replace(/\./g, "")}">
+                          <input type="hidden" name="tasa_deuda[]" value="${tasa}">
+                          <input type="hidden" name="meses_deuda[]" value="${meses}">
+                      `;
+          document.getElementById("lista-guardadas").appendChild(nuevaDeuda);
+          document.getElementById("tmp_nombre").value = "";
+          document.getElementById("tmp_saldo").value = "";
+          document.getElementById("tmp_cuota").value = "";
+          document.getElementById("tmp_tasa").value = "";
+          document.getElementById("tmp_meses").value = "";
+          document.getElementById("tmp_nombre").focus();
+        }
+      </script>
+      {{end}}
       <div class="sidebar-ads sidebar-der"></div>
     </div>
   </body>

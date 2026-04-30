@@ -1,13 +1,20 @@
 package main
 
 import (
+	"context"
 	"fmt"
 	"html/template"
+	"log"
 	"math"
 	"net/http"
 	"os"
 	"sort"
 	"strconv"
+	"strings"
+
+	"github.com/google/generative-ai-go/genai"
+	"github.com/joho/godotenv"
+	"google.golang.org/api/option"
 )
 
 type Deuda struct {
@@ -52,6 +59,7 @@ type VistaHTML struct {
 	AbonoOptB           float64
 	NuevaCuota          float64
 	Tablas              []TablaDeuda
+	TextoIA             template.HTML
 }
 
 // NUEVO: Función para poner puntos de miles (Ej: 1500000 -> 1.500.000)
@@ -325,8 +333,18 @@ func manejadorCalculadora(w http.ResponseWriter, r *http.Request) {
 	tmpl.Execute(w, datosVista)
 }
 func main() {
+	// 1. Ruta principal (la calculadora de siempre)
+	err := godotenv.Load()
+
+	if err != nil {
+		fmt.Println("Aviso: No se encontró el archivo .env")
+	}
 	http.HandleFunc("/", manejadorCalculadora)
 
+	// 2. Ruta DINÁMICA para SEO Programático
+	http.HandleFunc("/simulador/", manejadorSEO)
+
+	// 3. Ruta para el archivo ads.txt (importante para AdSense)
 	http.HandleFunc("/ads.txt", func(w http.ResponseWriter, r *http.Request) {
 		http.ServeFile(w, r, "ads.txt")
 	})
@@ -336,6 +354,95 @@ func main() {
 		puerto = "8080"
 	}
 
-	fmt.Println("Servidor activo. Escuchando en el puerto:", puerto)
-	http.ListenAndServe(":"+puerto, nil)
+	fmt.Println("Servidor activo en puerto:", puerto)
+	log.Fatal(http.ListenAndServe(":"+puerto, nil))
+}
+
+// manejadorSEO es el "cerebro" que decide si llamar a la IA o usar el caché
+func manejadorSEO(w http.ResponseWriter, r *http.Request) {
+	termino := strings.TrimPrefix(r.URL.Path, "/simulador/")
+	termino = strings.ReplaceAll(termino, "-", " ")
+
+	if termino == "" {
+		http.Redirect(w, r, "/", http.StatusSeeOther)
+		return
+	}
+
+	// 1. BUSCAR EN CACHÉ
+	nombreArchivo := fmt.Sprintf("cache/%s.txt", strings.ReplaceAll(termino, " ", "_"))
+	contenido, err := os.ReadFile(nombreArchivo)
+
+	var textoFinal string
+
+	if err == nil {
+		textoFinal = string(contenido)
+		fmt.Println("Cargando desde caché:", termino)
+	} else {
+		fmt.Println("Generando nuevo contenido con IA para:", termino)
+		textoFinal = generarTextoConIA(termino)
+
+		os.MkdirAll("cache", os.ModePerm)
+		os.WriteFile(nombreArchivo, []byte(textoFinal), 0644)
+	}
+
+	// 2. RENDERIZAR LA PÁGINA
+	funcMap := template.FuncMap{
+		"dinero": func(v float64) string {
+			s := strconv.FormatFloat(v, 'f', 0, 64)
+			for i := len(s) - 3; i > 0; i -= 3 {
+				s = s[:i] + "." + s[i:]
+			}
+			return s
+		},
+	}
+
+	tmpl, err := template.New("interfaz.html").Funcs(funcMap).ParseFiles("interfaz.html")
+	if err != nil {
+		http.Error(w, err.Error(), http.StatusInternalServerError)
+		return
+	}
+
+	// ESTA ES LA PARTE QUE TE FALTA PARA USAR LA VARIABLE 'tmpl'
+	data := struct {
+		Calculado bool
+		TextoIA   template.HTML
+	}{
+		Calculado: false,
+		TextoIA:   template.HTML(textoFinal), // <-- Así enviamos el texto de Gemini
+	}
+
+	err = tmpl.Execute(w, data)
+	if err != nil {
+		fmt.Println("Error ejecutando template:", err)
+	}
+}
+
+func generarTextoConIA(tema string) string {
+	ctx := context.Background()
+	client, err := genai.NewClient(ctx, option.WithAPIKey(os.Getenv("GEMINI_API_KEY")))
+	if err != nil {
+		return "Error conectando con el experto financiero."
+	}
+	defer client.Close()
+
+	model := client.GenerativeModel("gemini-2.5-flash")
+
+	prompt := fmt.Sprintf(`Actúa como un experto en finanzas personales. 
+	Escribe un artículo corto (3 párrafos) en formato HTML sobre: Cómo hacer abonos a capital para %s.
+	Usa etiquetas <h3> para subtítulos. Menciona el beneficio de reducir el tiempo y el método avalancha.
+	No incluyas etiquetas <html> ni <body>, solo el contenido.recuerda priorizar la optimizacion del SEO`, tema)
+
+	resp, err := model.GenerateContent(ctx, genai.Text(prompt))
+	if err != nil {
+		fmt.Println("CRÍTICO - Error de Gemini:", err)
+		return "Contenido en desarrollo, vuelve pronto."
+	}
+
+	if len(resp.Candidates) > 0 {
+		c := resp.Candidates[0]
+		if c.Content != nil && len(c.Content.Parts) > 0 {
+			return fmt.Sprintf("%v", c.Content.Parts[0])
+		}
+	}
+	return "Optimiza tus deudas hoy mismo con nuestra calculadora."
 }
