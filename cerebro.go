@@ -334,6 +334,8 @@ func manejadorCalculadora(w http.ResponseWriter, r *http.Request) {
 }
 func main() {
 	// 1. Ruta principal (la calculadora de siempre)
+	http.HandleFunc("/sitemap.xml", manejadorSitemap)
+
 	err := godotenv.Load()
 
 	if err != nil {
